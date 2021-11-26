@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maintenance mode</title>
+    <style>
+      .content {
+        padding-top: 5%;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content" lang="en">
+      <h1>Maintenance mode</h1>
+      <p>
+        The site is currently undergoing maintenance. Please check back soon.
+      </p>
+    </div>
+    <div class="content" lang="es" style="display: none">
+      <h1>Modo de mantenimiento</h1>
+      <p>
+        El sitio está actualmente en mantenimiento. Por favor, vuelva a
+        intentarlo más tarde.
+      </p>
+    </div>
+    <div class="content" lang="pt" style="display: none">
+      <h1>Modo de manutenção</h1>
+      <p>
+        O site está atualmente em manutenção. Por favor, volte a tentar mais
+        tarde.
+      </p>
+    </div>
+
+    <script>
+      document.querySelectorAll(".content").forEach(function (el) {
+        el.style.display = "none";
+      });
+      const els = Array.from(document.querySelectorAll(".content"));
+      let lang = "en";
+      for (const el of els) {
+        if (el.getAttribute("lang") === navigator.language.split("-")[0]) {
+          lang = el.getAttribute("lang");
+          break;
+        }
+      }
+      document.querySelector('.content[lang="' + lang + '"]').style.display =
+        "block";
+    </script>
+  </body>
+</html>
