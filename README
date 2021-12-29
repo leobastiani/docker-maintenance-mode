@@ -1,0 +1,2 @@
+docker build -t leobastiani/maintenance-mode .
+docker push leobastiani/maintenance-mode
